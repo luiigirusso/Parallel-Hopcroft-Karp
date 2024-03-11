@@ -43,14 +43,14 @@ int main(int argc, char *argv[]) {
     }
 
     // Stampa del grafo bipartito
-    //printBipartiteGraph(m, n, adj);
+    printBipartiteGraph(m, n, adj);
 
     // Execute the Hopcroft-Karp algorithm in parallel on the GPU
     int maxMatching = hopcroftKarp(graph);
 
     // Print the result
-    //printf("The maximum matching is: %d\n", maxMatching);
-    //printMatching(graph);
+    printf("The maximum matching is: %d\n", maxMatching);
+    printMatching(graph);
 
     // Free memory allocated for the graph
     destroyGraph(graph);

@@ -2,10 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Carica i dati dai file CSV
-df_sequential = pd.read_csv('../test/output_sequential.csv')
-df_mpi = pd.read_csv('../test/output_mpi.csv')
-df_cuda = pd.read_csv('../test/output_cuda.csv')
-df_cuda_mpi = pd.read_csv('../test/output_cuda_mpi.csv')
+df_sequential = pd.read_csv('../measures/output_sequential.csv')
+df_mpi = pd.read_csv('../measures/output_mpi.csv')
+df_cuda = pd.read_csv('../measures/output_cuda.csv')
+df_cuda_mpi = pd.read_csv('../measures/output_cuda_mpi.csv')
 
 # Crea una lista dei DataFrame per ogni dimensione
 dfs = [df_sequential, df_mpi, df_cuda, df_cuda_mpi]

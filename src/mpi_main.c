@@ -55,7 +55,9 @@ int main(int argc, char *argv[]) {
     }
 
     // Stampa del grafo bipartito
-    //printBipartiteGraph(m, n, adj);
+    if (rank == 0) {
+        printBipartiteGraph(m, n, adj);
+    }
 
     // Execute the Hopcroft-Karp algorithm in parallel on each MPI process
     int localMatching = hopcroftKarp(graph);
@@ -76,8 +78,8 @@ int main(int argc, char *argv[]) {
             }
         }
         // Print the global maximum matching
-        //printf("The maximum matching is: %d\n", globalMatching);
-        //printMatching(graph);
+        printf("The maximum matching is: %d\n", globalMatching);
+        printMatching(graph);
         free(allMatchings);
     }
 

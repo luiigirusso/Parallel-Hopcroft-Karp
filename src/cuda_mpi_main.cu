@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
     srand(m * n);
 
     // Generazione del grafo bipartito casuale
-    //generateRandomBipartiteGraph(m, n, adj);
+    generateRandomBipartiteGraph(m, n, adj);
 
     // Create a bipartite graph with specified number of vertices in sets X and Y
     BipartiteGraph *graph = createBipartiteGraph(m, n);
@@ -54,7 +54,9 @@ int main(int argc, char *argv[]) {
     }
 
     // Stampa del grafo bipartito
-    //printBipartiteGraph(m, n, adj);
+    if (rank == 0) {
+        printBipartiteGraph(m, n, adj);
+    }
 
 
     // Execute the Hopcroft-Karp algorithm in parallel on each MPI process
@@ -76,8 +78,8 @@ int main(int argc, char *argv[]) {
             }
         }
         // Print the global maximum matching
-        //printf("The maximum matching is: %d\n", globalMatching);
-        //printMatching(graph);
+        printf("The maximum matching is: %d\n", globalMatching);
+        printMatching(graph);
         free(allMatchings);
     }
 

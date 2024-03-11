@@ -23,8 +23,8 @@ def calculate_speedup(serial_times, parallel_times):
     return speedup
 
 def main():
-    serial_data = read_data("../test/output_sequential.csv")
-    parallel_data = read_data("../test/output_cuda_mpi.csv")
+    serial_data = read_data("../measures/output_sequential.csv")
+    parallel_data = read_data("../measures/output_cuda_mpi.csv")
 
     speedup = calculate_speedup(serial_data, parallel_data)
 
