@@ -16,21 +16,20 @@ https://www.cs.cmu.edu/~15850/notes/lec7.pdf
 
 To compile the project use the provided makefile. 
 Open a terminal window and navigate to the project directory, then run the following commands:
-'''cd path/to/project'''
-'''make clean'''
-'''make'''
+```make clean```
+```make```
 
 ## Execution
 
 To execute the project, use the following commands:
 **Sequential version**
-'./bin/sequential'
+```./bin/sequential```
 **MPI version**
-'mpirun -np 4 ./bin/mpi'
+```mpirun -np 4 ./bin/mpi```
 **CUDA version**
-'./bin/cuda'
+```./bin/cuda```
 **CUDA+MPI version**
-'mpirun -np 4 ./bin/cuda_mpi'
+```mpirun -np 4 ./bin/cuda_mpi```
 
 ## License
 
