@@ -1,7 +1,10 @@
 #!/bin/bash
 
+make clean
+make
+
 # Cancella tutti i file nella cartella test
-rm -f ./test/*
+rm -f ./measures/*
 
 # Numero di volte da eseguire il comando
 numero_test=10
@@ -22,14 +25,14 @@ scrivi_csv() {
     dimensione=$3
     numero_test=$4
 
-    csv_file="./test/output_${tipo_test}.csv"
+    csv_file="./measures/output_${tipo_test}.csv"
 
     if [ ! -f $csv_file ]; then
         echo "Dimensione,Tempo" > $csv_file
     fi
 
     for ((i=1; i<=$numero_test; i++)); do
-        output_file="./test/output_${tipo_test}_${dimensione}_${i}.txt"
+        output_file="./measures/output_${tipo_test}_${dimensione}_${i}.txt"
         tempo=$( { time $comando $dimensione $dimensione; } 2>&1 | grep real | awk '{print $2}' )
         echo "$dimensione,$tempo" >> $csv_file
     done

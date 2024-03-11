@@ -27,6 +27,10 @@ make
 
 To execute the project, use the following commands:
 
+(m: Number of vertices in set X)
+
+(n: Number of vertices in set Y)
+
 **Sequential version**
 
 ```bash
@@ -58,6 +62,8 @@ To perform a test of correct operation with default values of m and n, use the f
 ```
 
 N.B. The default values in this case are 10 and 10, but can be changed as desired.
+
+
 
 ## License
 

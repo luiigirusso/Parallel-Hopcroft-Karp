@@ -1,31 +1,59 @@
+/*
+# Course: High Performance Computing 2022/2023
+# 
+# Lecturer: Francesco Moscato fmoscato@unisa.it
+#
+# Student: 
+# Russo Luigi  0622702071  l.russo86@studenti.unisa.it
+#
+# This file is part of HopcroftKarp.
+#
+# HopcroftKarp is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# HopcroftKarp is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with ParallelTarjan.  If not, see <http://www.gnu.org/licenses/>.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
 
-
-
-
-// Funzione per generare un numero casuale compreso tra min e max
+// Function to generate a random number between min and max
 int randomInt(int min, int max) {
     return min + rand() % (max - min + 1);
 }
 
-// Funzione per generare un grafo bipartito casuale con m vertici nella prima partizione e n vertici nella seconda partizione
+/*
+ * Function: generateRandomBipartiteGraph
+ * ----------------------------------------
+ * Generates a random bipartite graph with m vertices in the first partition and n vertices in the second partition.
+ * 
+ * m: the number of vertices in the first partition (set X).
+ * n: the number of vertices in the second partition (set Y).
+ * adj: a 2D array representing the adjacency matrix of the bipartite graph.
+ */
 void generateRandomBipartiteGraph(int m, int n, int **adj) {
-    //srand(time(NULL)); // Inizializzazione del seme casuale
+    // srand(time(NULL)); // Initialize the random seed
 
-    // Inizializzazione della matrice di adiacenza
+    // Initialize the adjacency matrix
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             adj[i][j] = 0;
         }
     }
 
-    // Generazione delle connessioni tra i vertici delle due partizioni
+    // Generate connections between vertices of the two partitions
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            // Generazione casuale di un valore booleano per decidere se creare un arco tra i vertici i e j
+            // Generate a random boolean value to decide whether to create an edge between vertices i and j
             bool connect = rand() % 2;
             if (connect) {
                 adj[i][j] = 1;
@@ -34,9 +62,17 @@ void generateRandomBipartiteGraph(int m, int n, int **adj) {
     }
 }
 
-// Funzione per stampare il grafo bipartito
+/*
+ * Function: printBipartiteGraph
+ * -----------------------------
+ * Prints the adjacency matrix of a bipartite graph.
+ * 
+ * m: the number of vertices in the first partition.
+ * n: the number of vertices in the second partition.
+ * adj: the adjacency matrix of the bipartite graph.
+ */
 void printBipartiteGraph(int m, int n, int **adj) {
-    printf("Matrice di adiacenza:\n");
+    printf("Adjacency Matrix:\n");
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             printf("%d ", adj[i][j]);
